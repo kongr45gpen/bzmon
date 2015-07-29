@@ -12,7 +12,7 @@ $port   = 5154;
 
 $process = new Process("bzadmin -ui stdout $username:$password@$server:$port");
 $process->setTimeout(null);
-$process->run(function ($type, $buffer) use ($process) {
+$process->run(function ($type, $buffer) use ($server, $port) {
     $buffer = explode('\n', trim($buffer));
 
     foreach ($buffer as $line) {
